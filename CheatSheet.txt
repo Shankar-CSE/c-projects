@@ -1,0 +1,275 @@
+📘 C Programming Cheat Sheet
+🔹 1. Basics
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    printf("Hello, World!\\n");
+    return 0;
+}
+
+Data Types
+
+int, short, long, long long
+
+float, double, long double
+
+char
+
+void
+
+unsigned variants
+
+Constants
+
+Integer: 10, 0x1A, 010
+
+Floating: 3.14, 2.5e3
+
+Character: 'A'
+
+String: "Hello"
+
+Operators
+
+Arithmetic: + - * / %
+
+Relational: == != < > <= >=
+
+Logical: && || !
+
+Bitwise: & | ^ ~ << >>
+
+Assignment: = += -= *= /= %=
+
+Increment/Decrement: ++ --
+
+Conditional: ? :
+
+🔹 2. Control Flow
+if (x > 0) { ... }
+else if (x == 0) { ... }
+else { ... }
+
+switch (n) {
+    case 1: ...; break;
+    default: ...;
+}
+
+for (int i=0; i<10; i++) { ... }
+while (cond) { ... }
+do { ... } while (cond);
+
+goto label;
+label: ...
+
+🔹 3. Functions
+int add(int a, int b) {
+    return a + b;
+}
+
+
+Function prototypes
+
+void return type
+
+static functions (internal linkage)
+
+inline functions (optimization)
+
+🔹 4. Pointers
+int x = 10;
+int *p = &x;   // pointer
+printf("%d", *p); // dereference
+
+
+Pointer arithmetic
+
+void* (generic pointers)
+
+Function pointers:
+
+int (*fptr)(int,int) = add;
+
+🔹 5. Arrays & Strings
+int arr[5] = {1,2,3,4,5};
+char str[] = "Hello";
+
+String Functions (<string.h>)
+
+strlen, strcpy, strncpy
+
+strcat, strncat
+
+strcmp, strncmp
+
+strchr, strrchr
+
+strstr, strtok
+
+memcpy, memmove
+
+memset, memcmp
+
+🔹 6. Structures & Unions
+struct Student {
+    int id;
+    char name[50];
+    float gpa;
+};
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+
+typedef for shorthand
+
+Nested structs
+
+Bitfields
+
+🔹 7. File Handling (<stdio.h>)
+FILE *f = fopen("file.txt","w");
+fprintf(f,"Hello");
+fclose(f);
+
+
+Functions:
+
+fopen, fclose
+
+fprintf, fscanf
+
+fgets, fputs
+
+fread, fwrite
+
+fseek, ftell, rewind
+
+🔹 8. Memory Management (<stdlib.h>)
+int *p = malloc(10 * sizeof(int));
+p = realloc(p, 20 * sizeof(int));
+free(p);
+
+
+Functions:
+
+malloc, calloc, realloc, free
+
+exit, abort, atexit
+
+Random: rand, srand
+
+🔹 9. Standard Libraries
+<stdio.h>
+
+Input/Output: printf, scanf, puts, gets (unsafe), fgets
+
+<stdlib.h>
+
+Memory: malloc, calloc, realloc, free
+
+Conversion: atoi, atof, strtol, strtod
+
+Sorting/Searching: qsort, bsearch
+
+Random: rand, srand
+
+<ctype.h>
+
+Character tests: isalpha, isdigit, isspace, isalnum
+
+Case conversion: tolower, toupper
+
+<math.h>
+
+Basic: sqrt, pow, fabs, fmod
+
+Trig: sin, cos, tan, asin, acos, atan
+
+Exponential/Log: exp, log, log10
+
+<time.h>
+
+time, clock, difftime
+
+localtime, gmtime, strftime
+
+<string.h>
+
+String/Memory handling (listed earlier)
+
+<errno.h>
+
+Error codes (e.g., errno, perror, strerror)
+
+🔹 10. Advanced C Features
+Dynamic Data Structures
+
+Linked lists, stacks, queues, trees (implemented via structs + pointers)
+
+Preprocessor
+#define PI 3.1415
+#define SQR(x) ((x)*(x))
+#include "file.h"
+#ifdef DEBUG
+  printf("Debugging");
+#endif
+
+Storage Classes
+
+auto (default local vars)
+
+static (preserve value, internal linkage)
+
+extern (declare global vars across files)
+
+register (suggest CPU register storage)
+
+Typedef & Enums
+typedef unsigned int uint;
+enum Day { MON, TUE, WED };
+
+Command-Line Arguments
+int main(int argc, char *argv[]) {
+    printf("Arg1: %s", argv[1]);
+}
+
+Error Handling
+
+errno, perror, strerror
+
+Return codes
+
+Multi-threading (POSIX <pthread.h>)
+pthread_t tid;
+pthread_create(&tid, NULL, func, NULL);
+pthread_join(tid, NULL);
+
+Networking (sockets)
+
+<sys/socket.h>, <arpa/inet.h>, <netinet/in.h>
+
+socket, bind, listen, accept, connect, send, recv
+
+🔹 11. Common Algorithms in C
+
+Searching: Linear, Binary (bsearch)
+
+Sorting: Bubble, Merge, Quick (qsort)
+
+Recursion (Factorial, Fibonacci, Tower of Hanoi)
+
+Hashing using arrays/structs
+
+Graph algorithms (BFS, DFS using adjacency list)
+
+🔹 12. Debugging & Tools
+
+Compiler warnings: gcc -Wall -Wextra file.c
+
+Debugging: gdb ./a.out
+
+Memory check: valgrind ./a.out
